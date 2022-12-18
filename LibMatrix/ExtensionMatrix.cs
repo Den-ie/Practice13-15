@@ -37,7 +37,6 @@ namespace LibMatrix
         {
             double[] tempMas = new double[matrix.Row];
             int kol = 0;
-            int realKol = 0;
 
             for (int i = 0; i < matrix.Column; i++)
             {
@@ -46,16 +45,12 @@ namespace LibMatrix
                     tempMas[j] = matrix[i, j];
                 }
 
-                for(int k = 0; k < tempMas.Length; k++)
-                {
-                    if (tempMas[k] == matrix[i, k])
-                        break;
+                var arrat = tempMas.Distinct();
+                int x = arrat.Count();
+                if (x == matrix.Row)
                     kol++;
-                }
-                if (kol == tempMas.Length)
-                    realKol++;
             }
-            return realKol;
+            return kol;
         }
     }
 }
