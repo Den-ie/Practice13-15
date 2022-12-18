@@ -1,0 +1,184 @@
+﻿<Window x:Class="Practice13_15.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Practice13_15"
+        mc:Ignorable="d"
+        Title="Интерфейс"
+        Height="350"
+        Width="500">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="1.3*"/>
+            <RowDefinition Height="0.1*"/>
+        </Grid.RowDefinitions>
+
+        <Menu Grid.ColumnSpan="2">
+            <MenuItem Header="Файл">
+                <MenuItem Header="О программе"
+                          Click="AboutProgramm"/>
+
+                <Separator></Separator>
+                <MenuItem Header="Выход"
+                          Click="Exit"/>
+            </MenuItem>
+        </Menu>
+
+        <TabControl Grid.Row="1" Grid.ColumnSpan="2">
+            <TabItem Header="Задание 1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="0.5*"/>
+                    </Grid.RowDefinitions>
+
+                    <GroupBox Grid.ColumnSpan="2"
+                              Header="Исходные данные">
+                        <Grid>
+                            <DataGrid x:Name="Table"/>
+                        </Grid>
+                    </GroupBox>
+
+                    <GroupBox Grid.Row="1" 
+                              Grid.ColumnSpan="2"
+                              Header="Результат">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+
+                            <Label Content="Количество строк"
+                                   VerticalAlignment="Bottom"
+                                   Margin="10,11,10,0" 
+                                   Height="25" Grid.Row="0"/>
+
+                            <TextBox Grid.Row="1"
+                                     VerticalAlignment="Center"
+                                     Height="25"
+                                     Width="130"
+                                     x:Name="RowCount"
+                                     Margin="10,0,10,0">
+
+                                <TextBox.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem Header="Копировать" />
+                                        <MenuItem Header="Вырезать" />
+                                        <MenuItem Header="Вставить" />
+                                        <MenuItem Header="Удалить" />
+                                    </ContextMenu>
+                                </TextBox.ContextMenu>
+                            </TextBox>
+
+                            <Label Content="Количество столбцов"
+                                   VerticalAlignment="Top"
+                                   Margin="10,15,10,0"
+                                   Grid.Column="1" Grid.RowSpan="2"/>
+
+                            <TextBox Grid.Column="1"
+                                     Grid.Row="1"
+                                     VerticalAlignment="Center"
+                                     Height="25"
+                                     Width="130"
+                                     x:Name="ColumnCount"
+                                     Margin="10,0,10,0">
+
+                                <TextBox.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem Header="Копировать" />
+                                        <MenuItem Header="Вырезать" />
+                                        <MenuItem Header="Вставить" />
+                                        <MenuItem Header="Удалить" />
+                                    </ContextMenu>
+                                </TextBox.ContextMenu>
+                            </TextBox>
+                            
+                            <Label Content="Количество столбцов"
+                                   VerticalAlignment="Top"
+                                   Margin="10,15,10,0"
+                                   Grid.Column="2"
+                                   Grid.Row="0"/>
+
+                            <TextBox Grid.Column="2"
+                                     Grid.Row="1"
+                                     VerticalAlignment="Center"
+                                     Height="25"
+                                     Width="130"
+                                     x:Name="Answer"
+                                     Margin="10,0,10,0">
+
+                                <TextBox.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem Header="Копировать" />
+                                        <MenuItem Header="Вырезать" />
+                                        <MenuItem Header="Вставить" />
+                                        <MenuItem Header="Удалить" />
+                                    </ContextMenu>
+                                </TextBox.ContextMenu>
+                            </TextBox>
+
+                        </Grid>
+                    </GroupBox>
+
+                    <GroupBox Grid.Row="2"
+                              Grid.ColumnSpan="2">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <Button Margin="7"
+                                    Content="Создать"
+                                    Click="CreateArray"
+                                    ToolTip="Создать матрицу"/>
+
+                            <Button Margin="7"
+                                    Content="Рассчитать"
+                                    Grid.Column="2"
+                                    Click="Calculate"
+                                    ToolTip="Рассчитать результат"/>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+        <StatusBar Grid.Row="2"
+                   Grid.ColumnSpan="2"
+                   VerticalAlignment="Top">
+
+            <TextBlock x:Name="time"
+                       VerticalAlignment="Top"/>
+            <Separator/>
+            <TextBlock x:Name="data"
+                       VerticalAlignment="Top"/>
+
+            <Separator>
+            </Separator>
+            <TextBlock Text="Практическая №12, Вариант 4"
+                       VerticalAlignment="Top"/>
+
+        </StatusBar>
+
+    </Grid>
+</Window>
