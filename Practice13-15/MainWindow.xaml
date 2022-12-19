@@ -30,7 +30,6 @@
                 <MenuItem Header="О программе"
                           Click="AboutProgramm"/>
                 
-                <Separator/>
                 <MenuItem Header="Настройки"
                           Click="Settings"/>
                 
