@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Title="Интерфейс"
         Height="350"
-        Width="500">
+        Width="500"
+        Loaded="WindowStart">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -22,12 +23,23 @@
 
         <Menu Grid.ColumnSpan="2">
             <MenuItem Header="Файл">
-                <MenuItem Header="О программе"
-                          Click="AboutProgramm"/>
-
-                <Separator></Separator>
                 <MenuItem Header="Выход"
                           Click="Exit"/>
+
+                <Separator/>
+                <MenuItem Header="О программе"
+                          Click="AboutProgramm"/>
+                
+                <Separator/>
+                <MenuItem Header="Настройки"
+                          Click="Settings"/>
+                
+                <Separator/>
+                <MenuItem Header="Сохранить"
+                          Click="Save"/>
+                
+                <MenuItem Header="Загрузить"
+                          Click="Load"/>
             </MenuItem>
         </Menu>
 
@@ -77,7 +89,8 @@
                                      Height="25"
                                      Width="130"
                                      x:Name="RowCount"
-                                     Margin="10,0,10,0">
+                                     Margin="10,0,10,0"
+                                     TextChanged="RowChange">
 
                                 <TextBox.ContextMenu>
                                     <ContextMenu>
@@ -100,7 +113,8 @@
                                      Height="25"
                                      Width="130"
                                      x:Name="ColumnCount"
-                                     Margin="10,0,10,0">
+                                     Margin="10,0,10,0"
+                                     TextChanged="ColumnChange">
 
                                 <TextBox.ContextMenu>
                                     <ContextMenu>
@@ -111,12 +125,11 @@
                                     </ContextMenu>
                                 </TextBox.ContextMenu>
                             </TextBox>
-                            
-                            <Label Content="Количество столбцов"
-                                   VerticalAlignment="Top"
-                                   Margin="10,15,10,0"
-                                   Grid.Column="2"
-                                   Grid.Row="0"/>
+
+                            <Label Content="Кол-во различных&#xD;&#xA;столбцов"
+                                   VerticalAlignment="Center"
+                                   Margin="10,0,10,0"
+                                   Grid.Column="2" Height="41"/>
 
                             <TextBox Grid.Column="2"
                                      Grid.Row="1"
@@ -124,7 +137,8 @@
                                      Height="25"
                                      Width="130"
                                      x:Name="Answer"
-                                     Margin="10,0,10,0">
+                                     Margin="10,0,10,0"
+                                     IsReadOnly="true">
 
                                 <TextBox.ContextMenu>
                                     <ContextMenu>
@@ -167,15 +181,7 @@
                    Grid.ColumnSpan="2"
                    VerticalAlignment="Top">
 
-            <TextBlock x:Name="time"
-                       VerticalAlignment="Top"/>
-            <Separator/>
-            <TextBlock x:Name="data"
-                       VerticalAlignment="Top"/>
-
-            <Separator>
-            </Separator>
-            <TextBlock Text="Практическая №12, Вариант 4"
+            <TextBlock Text="Практическая №13-15 | Вариант 4"
                        VerticalAlignment="Top"/>
 
         </StatusBar>
